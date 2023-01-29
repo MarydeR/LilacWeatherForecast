@@ -47,11 +47,11 @@ document.querySelector("#date").innerHTML = displayDate(now);
 function searchCity(city) {
   let apikey = "2ec340bdbdo84acaf6ct2a055b44668d";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apikey}&units=metric`;
-  axios.get(apiUrl).then(showWeather);
+  axios.get(apiUrl).then(showWeather).catch(showError);
 }
 
 function showWeather(response) {
-  console.log(response);
+  //console.log(response);
   let city = response.data.city;
   let maintemp = Math.round(response.data.temperature.current);
   let weathercondition = response.data.condition.description;
@@ -67,4 +67,38 @@ function showWeather(response) {
   document.querySelector("#wind").innerHTML = `${wind}`;
   document.querySelector("#humid").innerHTML = `${humid}`;
 }
+
+function showError() {
+  document.querySelector("#maincity").innerHTML = `The city is not found`;
+}
 searchCity("Brussels");
+
+// Search City Engine
+
+function citychange(event) {
+  event.preventDefault();
+  let valuecity = document.querySelector("#input-city");
+  let newcityname = valuecity.value;
+  searchCity(newcityname);
+}
+
+let cityform = document.querySelector("#enter-city");
+cityform.addEventListener("submit", citychange);
+
+// current position
+
+function currentlocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getPositionTemp);
+}
+//
+function getPositionTemp(position) {
+  //console.log(position);
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apikey = "2ec340bdbdo84acaf6ct2a055b44668d";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apikey}&units=metric`;
+  axios.get(apiUrl).then(showWeather).catch(showError);
+}
+let currentform = document.querySelector("#currentcitybutton");
+currentform.addEventListener("click", currentlocation);
