@@ -35,6 +35,14 @@ small {
 #maincity {
   font-weight: bolder;
 }
+#condition::first-letter {
+  text-transform: capitalize;
+}
+#condition {
+  color: #bd82df;
+  font-size: 25px;
+  line-height: 25px;
+}
 #maintemp {
   font-size: 50px;
   font-weight: bold;

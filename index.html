@@ -29,7 +29,7 @@
                 <!-- col1 city -->
                 <h1 id="maincity">City</h1>
                 <ul>
-                  <li>weather</li>
+                  <li id="condition">weather</li>
                   <li id="weekday">Weekday</li>
                   <li id="date">dd month year</li>
                   <!-- <li>Local time: hh:mm</li>-->
@@ -41,21 +41,24 @@
                   <div class="col-7">
                     <!-- col2 col temp info -->
                     <div>
-                      <span id="maintemp">20°</span>
+                      <span id="maintemp">
+                        <span id="maintempnumber">--</span>°</span
+                      >
                       <span id="celsius">C</span>
                       <span id="between">|</span>
                       <span id="farenheit">F</span>
                     </div>
-                    <div>
-                      <!-- col1 row H/L-->
+                    <!-- <div> H and L not in SheCodes API
+                      col1 row H/L-
                       H: <span>--</span>° L: <span>--</span>°
-                    </div>
+                    </div> -->
                   </div>
                   <!-- col2 col mainicon-->
                   <div class="col-5">
                     <img
                       src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-                      alt="icon"
+                      alt="weather icon"
+                      id="weathericon"
                     />
                   </div>
                 </div>
@@ -63,11 +66,11 @@
               <div class="col-3">
                 <!-- col3 extra -->
                 <ul>
-                  <li class="extra" id="feelslike">
-                    Feels like: <span>x</span> °
+                  <li class="extra">
+                    Feels like: <span id="feelslike">x</span> °
                   </li>
-                  <li class="extra" id="wind">Wind: <span>xx</span> m/s</li>
-                  <li class="extra" id="humid">Humidity: <span>xx</span> %</li>
+                  <li class="extra">Wind: <span id="wind">xx</span> m/s</li>
+                  <li class="extra">Humidity: <span id="humid">xx</span> %</li>
                 </ul>
               </div>
             </div>
