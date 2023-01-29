@@ -18,85 +18,96 @@
   </head>
   <body>
     <div class="containter">
-      <div class="wrapper">
+      <div class="overallwrapper">
         <!-- overall wrapper -->
-        <div class="section1">
-          <!-- main weather // row 1-->
-          <div class="row">
-            <!-- 3 col: city, temp, extra -->
-            <div class="col">
-              <!-- col1 city -->
-              <h1 class="maincity">City</h1>
-              <ul>
-                <li>dd mm yy</li>
-                <li>day hh:mm</li>
-                <li>weather</li>
-              </ul>
-            </div>
-            <div class="col">
-              <!-- col2 temp -->
+        <div class="weatherappwrapper">
+          <div class="section1">
+            <!-- main weather // row 1-->
+            <div class="row">
+              <!-- 3 col: city, temp, extra -->
               <div class="col">
-                <!-- col2 col temp info -->
-                <div class="maintemp">
-                  <strong>--°</strong>
-                  <span id="celsius">C</span>
-                  <span id="between">|</span>
-                  <span id="farenheit">F</span>
+                <!-- col1 city -->
+                <h1 class="maincity">City</h1>
+                <ul>
+                  <li>dd mm yy</li>
+                  <li>day hh:mm</li>
+                  <li>weather</li>
+                </ul>
+              </div>
+              <div class="col">
+                <!-- col2 temp -->
+                <div class="col">
+                  <!-- col2 col temp info -->
+                  <div class="maintemp">
+                    <strong>--°</strong>
+                    <span id="celsius">C</span>
+                    <span id="between">|</span>
+                    <span id="farenheit">F</span>
+                  </div>
+                  <div>
+                    <!-- col1 row H/L-->
+                    H: <span>--</span>° L: <span>--</span>°
+                  </div>
                 </div>
-                <div>
-                  <!-- col1 row H/L-->
-                  H: <span>--</span>° L: <span>--</span>°
+                <!-- col2 col mainicon-->
+                <div class="col">
+                  <img
+                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                    alt="icon"
+                  />
                 </div>
               </div>
-              <!-- col2 col mainicon-->
               <div class="col">
-                <img
-                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-                  alt="icon"
+                <!-- col3 extra -->
+                <ul>
+                  <li class="extra" id="feelslike">
+                    Feels like: <span>x</span> °
+                  </li>
+                  <li class="extra" id="wind">Wind: <span>xx</span> m/s</li>
+                  <li class="extra" id="humid">Humidity: <span>xx</span> %</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <form class="mb-3" id="search-form">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
                 />
               </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="btn btn-primary w-100"
+                />
+              </div>
+              <div class="col-3">
+                <button
+                  type="button"
+                  class="btn btn-success mb-3"
+                  id="currentcitybutton"
+                >
+                  Local City
+                </button>
+              </div>
             </div>
-            <div class="col">
-              <!-- col3 extra -->
-              <ul>
-                <li class="extra" id="feelslike">
-                  Feels like: <span>x</span> °
-                </li>
-                <li class="extra" id="wind">Wind: <span>xx</span> m/s</li>
-                <li class="extra" id="humid">Humidity: <span>xx</span> %</li>
-              </ul>
-            </div>
-          </div>
+          </form>
         </div>
-        <form id="search-form" class="mb-3">
-          <div class="row">
-            <div class="col-6">
-              <input
-                type="search"
-                placeholder="Type a city.."
-                class="form-control"
-                id="city-input"
-                autocomplete="off"
-              />
-            </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Search"
-                class="btn btn-primary w-100"
-              />
-            </div>
-            <div class="col-3">
-              <button
-                type="button"
-                class="btn btn-success mb-3"
-                id="currentcitybutton"
-              >
-                Current City
-              </button>
-            </div>
-          </div>
-        </form>
+        <small
+          ><a
+            href="https://github.com/MarydeR/LilacWeatherForecast"
+            target="_blank"
+            id="opensourcelink"
+            >OpenSourceCode</a
+          >
+          by MDR
+        </small>
       </div>
     </div>
     <script src="src/app.js"></script>
