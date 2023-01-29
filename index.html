@@ -29,7 +29,7 @@
               <h1 class="maincity">City</h1>
               <ul>
                 <li>dd mm yy</li>
-                <li>week hh:mm</li>
+                <li>day hh:mm</li>
                 <li>weather</li>
               </ul>
             </div>
@@ -40,23 +40,30 @@
                 <div class="maintemp">
                   <strong>--°</strong>
                   <span id="celsius">C</span>
-                  <span id="between"></span>
-                  <span id="farenheit"></span>
+                  <span id="between">|</span>
+                  <span id="farenheit">F</span>
                 </div>
                 <div>
                   <!-- col1 row H/L-->
-                  H/L
+                  H: <span>--</span>° L: <span>--</span>°
                 </div>
               </div>
               <!-- col2 col mainicon-->
-              <div class="col">👩🏻‍💻</div>
+              <div class="col">
+                <img
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                  alt="icon"
+                />
+              </div>
             </div>
             <div class="col">
               <!-- col3 extra -->
               <ul>
-                <li class="extra" id="feelslike">Feels Like: x°</li>
-                <li class="extra" id="wind">Wind: xxm/s</li>
-                <li class="extra" id="humid">Humidity: xx%</li>
+                <li class="extra" id="feelslike">
+                  Feels like: <span>x</span> °
+                </li>
+                <li class="extra" id="wind">Wind: <span>xx</span> m/s</li>
+                <li class="extra" id="humid">Humidity: <span>xx</span> %</li>
               </ul>
             </div>
           </div>
