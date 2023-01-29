@@ -54,16 +54,18 @@ function showWeather(response) {
   //console.log(response);
   let city = response.data.city;
   let maintemp = Math.round(response.data.temperature.current);
+  celsiustemp = Math.round(response.data.temperature.current);
   let weathercondition = response.data.condition.description;
   let iconurl = response.data.condition.icon_url;
   let feelslike = Math.round(response.data.temperature.feels_like);
+  celsiusfeelslike = Math.round(response.data.temperature.feels_like);
   let wind = Math.round(response.data.wind.speed);
   let humid = Math.round(response.data.temperature.humidity);
   document.querySelector("#maincity").innerHTML = `${city}`;
-  document.querySelector("#maintempnumber").innerHTML = `${maintemp}`;
+  document.querySelector("#maintempnumber").innerHTML = `${maintemp}°`;
   document.querySelector("#condition").innerHTML = `${weathercondition}`;
   document.querySelector("#weathericon").setAttribute("src", iconurl);
-  document.querySelector("#feelslike").innerHTML = `${feelslike}`;
+  document.querySelector("#feelslike").innerHTML = `${feelslike}°`;
   document.querySelector("#wind").innerHTML = `${wind}`;
   document.querySelector("#humid").innerHTML = `${humid}`;
 }
@@ -77,6 +79,8 @@ searchCity("Brussels");
 
 function citychange(event) {
   event.preventDefault();
+  document.getElementById("maincity").style.color = "#f0defb";
+
   let valuecity = document.querySelector("#input-city");
   let newcityname = valuecity.value;
   searchCity(newcityname);
@@ -89,9 +93,11 @@ cityform.addEventListener("submit", citychange);
 
 function currentlocation(event) {
   event.preventDefault();
+  document.getElementById("maincity").style.color = "#846BCE";
+
   navigator.geolocation.getCurrentPosition(getPositionTemp);
 }
-//
+
 function getPositionTemp(position) {
   //console.log(position);
   let lat = position.coords.latitude;
@@ -102,3 +108,33 @@ function getPositionTemp(position) {
 }
 let currentform = document.querySelector("#currentcitybutton");
 currentform.addEventListener("click", currentlocation);
+
+// C° - F° conversion
+let celsiustemp = null;
+let celsiusfeelslike = null;
+
+function convertToFaren(event) {
+  event.preventDefault();
+  let maintemp = document.querySelector("#maintempnumber");
+  let feelslike = document.querySelector("#feelslike");
+  let farenmaintemp = Math.round(celsiustemp * (9 / 5) + 32);
+  let farentfeelslike = Math.round(celsiusfeelslike * (9 / 5) + 32);
+  maintemp.innerHTML = `${farenmaintemp}°`;
+  feelslike.innerHTML = `${farentfeelslike}°`;
+  document.getElementById("maintempnumber").style.color = "#bd82df";
+  document.getElementById("feelslike").style.color = "#bd82df";
+}
+function convertToCel(event) {
+  event.preventDefault();
+  let maintemp = document.querySelector("#maintempnumber");
+  let feelslike = document.querySelector("#feelslike");
+  maintemp.innerHTML = `${celsiustemp}°`;
+  feelslike.innerHTML = `${celsiusfeelslike}°`;
+  document.getElementById("maintempnumber").style.color = "#f0defb";
+  document.getElementById("feelslike").style.color = "#f0defb";
+}
+let flink = document.querySelector("#farenheit");
+flink.addEventListener("click", convertToFaren);
+
+let clink = document.querySelector("#celsius");
+clink.addEventListener("click", convertToCel);
