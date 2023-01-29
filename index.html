@@ -25,39 +25,42 @@
             <!-- main weather // row 1-->
             <div class="row">
               <!-- 3 col: city, temp, extra -->
-              <div class="col columncity">
+              <div class="col-4 columncity">
                 <!-- col1 city -->
-                <h1 class="maincity">City</h1>
+                <h1 id="maincity">City</h1>
                 <ul>
-                  <li>dd mm yy</li>
-                  <li>day hh:mm</li>
                   <li>weather</li>
+                  <li>Saturday</li>
+                  <li>29 January 2023</li>
+                  <!-- <li>Local time: hh:mm</li>-->
                 </ul>
               </div>
-              <div class="col">
+              <div class="col-5">
                 <!-- col2 temp -->
-                <div class="col">
-                  <!-- col2 col temp info -->
-                  <div class="maintemp">
-                    <strong>--°</strong>
-                    <span id="celsius">C</span>
-                    <span id="between">|</span>
-                    <span id="farenheit">F</span>
+                <div class="row">
+                  <div class="col-7">
+                    <!-- col2 col temp info -->
+                    <div>
+                      <span id="maintemp">20°</span>
+                      <span id="celsius">C</span>
+                      <span id="between">|</span>
+                      <span id="farenheit">F</span>
+                    </div>
+                    <div>
+                      <!-- col1 row H/L-->
+                      H: <span>--</span>° L: <span>--</span>°
+                    </div>
                   </div>
-                  <div>
-                    <!-- col1 row H/L-->
-                    H: <span>--</span>° L: <span>--</span>°
+                  <!-- col2 col mainicon-->
+                  <div class="col-5">
+                    <img
+                      src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                      alt="icon"
+                    />
                   </div>
-                </div>
-                <!-- col2 col mainicon-->
-                <div class="col">
-                  <img
-                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-                    alt="icon"
-                  />
                 </div>
               </div>
-              <div class="col">
+              <div class="col-3">
                 <!-- col3 extra -->
                 <ul>
                   <li class="extra" id="feelslike">

@@ -1,6 +1,10 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+ul {
+  margin: 0;
+  padding: 0;
+}
 li {
   list-style: none;
   line-height: 20px;
@@ -12,6 +16,7 @@ small {
 }
 .section1 {
   color: #f0defb;
+  margin: 50px auto;
 }
 
 .overallwrapper {
@@ -27,8 +32,18 @@ small {
     rgb(122, 101, 149) 100%
   );
 }
-.section1 {
-  margin: 50px auto;
+#maincity {
+  font-weight: bolder;
+}
+#maintemp {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.extra {
+  font-size: 13px;
+  line-height: 13px;
 }
 .mb-3 {
   margin-bottom: 1px !important;
