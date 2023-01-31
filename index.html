@@ -21,7 +21,7 @@
       <div class="overallwrapper">
         <!-- overall wrapper -->
         <div class="weatherappwrapper">
-          <div class="section1">
+          <div class="section1main">
             <!-- main weather // row 1-->
             <div class="row">
               <!-- 3 col: city, temp, extra -->
@@ -61,18 +61,22 @@
               </div>
             </div>
           </div>
-          <div class="section2">
+          <div class="section2forecast" id="sectionforecast">
             <div class="row">
-              <div class="col">
-                <div>Day</div>
+              <div class="col-2">
+                <div id="forcastday">Day</div>
                 <div>
                   <img
                     src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-                    alt="weather icon"
-                    id="weathericon"
+                    alt="forecast icon"
+                    id="forecasticon"
+                    width="70"
                   />
                 </div>
-                <div>H/L</div>
+                <div class="forecastHL">
+                  <span id="forecastH">20°</span>
+                  <span id="forecastL">10°</span>
+                </div>
               </div>
             </div>
           </div>

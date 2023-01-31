@@ -106,3 +106,33 @@ function getPositionTemp(position) {
 }
 let currentform = document.querySelector("#currentcitybutton");
 currentform.addEventListener("click", currentlocation);
+
+// forecast html injection
+function displayForecast() {
+  let forecastSection = document.querySelector("#sectionforecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+         <div class="col-2">
+            <div id="forcastday">${day}</div>
+                <img
+                    src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                    alt="forecast icon"
+                    id="forecasticon"
+                    width="70"
+                />
+                
+            <div class="forecastHL">
+                <span id="forecastH">20°</span>
+                <span id="forecastL">10°</span>
+            </div>
+        </div>
+        `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastSection.innerHTML = forecastHTML;
+}
+displayForecast();
