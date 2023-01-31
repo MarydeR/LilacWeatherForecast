@@ -62,7 +62,7 @@ function showWeather(response) {
   let wind = Math.round(response.data.wind.speed);
   let humid = Math.round(response.data.temperature.humidity);
   document.querySelector("#maincity").innerHTML = `${city}`;
-  document.querySelector("#maintempnumber").innerHTML = `${maintemp}°`;
+  document.querySelector("#maintempnumber").innerHTML = `${maintemp}`;
   document.querySelector("#condition").innerHTML = `${weathercondition}`;
   document.querySelector("#weathericon").setAttribute("src", iconurl);
   document.querySelector("#feelslike").innerHTML = `${feelslike}°`;
