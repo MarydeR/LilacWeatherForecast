@@ -35,36 +35,20 @@
                   <!-- <li>Local time: hh:mm</li>-->
                 </ul>
               </div>
-              <div class="col-5">
-                <!-- col2 temp -->
-                <div class="row">
-                  <div class="col-7">
-                    <!-- col2 col temp info -->
-                    <div>
-                      <span id="maintemp">
-                        <span id="maintempnumber">--°</span></span
-                      >
-                      <span> <a href="#" id="celsius">C</a> </span>
-                      <span id="between">|</span>
-                      <span> <a href="#" id="farenheit">F</a></span>
-                    </div>
-                    <!-- 
-                        <div> H and L not in SheCodes API
-                      col1 row H/L-
-                      H: <span>--</span>° L: <span>--</span>°
-                    </div> 
-                    -->
-                  </div>
-                  <!-- col2 col mainicon-->
-                  <div class="col-5">
-                    <img
-                      src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
-                      alt="weather icon"
-                      id="weathericon"
-                    />
-                  </div>
-                </div>
+              <div class="col-2">
+                <!-- col temp -->
+                <span id="maintemp"> <span id="maintempnumber">--°</span></span>
+                <span id="celsius"> C</span>
               </div>
+              <!-- col2 col mainicon-->
+              <div class="col-3">
+                <img
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+                  alt="weather icon"
+                  id="weathericon"
+                />
+              </div>
+
               <div class="col-3">
                 <!-- col3 extra -->
                 <ul class="topextra">
@@ -77,6 +61,7 @@
               </div>
             </div>
           </div>
+          <div class="section2"></div>
           <form class="mb-3" id="enter-city">
             <div class="row">
               <div class="col-6">

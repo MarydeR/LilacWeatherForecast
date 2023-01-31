@@ -79,7 +79,6 @@ searchCity("Brussels");
 
 function citychange(event) {
   event.preventDefault();
-  document.getElementById("maincity").style.color = "#f0defb";
 
   let valuecity = document.querySelector("#input-city");
   let newcityname = valuecity.value;
@@ -93,7 +92,6 @@ cityform.addEventListener("submit", citychange);
 
 function currentlocation(event) {
   event.preventDefault();
-  document.getElementById("maincity").style.color = "#846BCE";
 
   navigator.geolocation.getCurrentPosition(getPositionTemp);
 }
@@ -108,33 +106,3 @@ function getPositionTemp(position) {
 }
 let currentform = document.querySelector("#currentcitybutton");
 currentform.addEventListener("click", currentlocation);
-
-// C° - F° conversion
-let celsiustemp = null;
-let celsiusfeelslike = null;
-
-function convertToFaren(event) {
-  event.preventDefault();
-  let maintemp = document.querySelector("#maintempnumber");
-  let feelslike = document.querySelector("#feelslike");
-  let farenmaintemp = Math.round(celsiustemp * (9 / 5) + 32);
-  let farentfeelslike = Math.round(celsiusfeelslike * (9 / 5) + 32);
-  maintemp.innerHTML = `${farenmaintemp}°`;
-  feelslike.innerHTML = `${farentfeelslike}°`;
-  document.getElementById("maintempnumber").style.color = "#bd82df";
-  document.getElementById("feelslike").style.color = "#bd82df";
-}
-function convertToCel(event) {
-  event.preventDefault();
-  let maintemp = document.querySelector("#maintempnumber");
-  let feelslike = document.querySelector("#feelslike");
-  maintemp.innerHTML = `${celsiustemp}°`;
-  feelslike.innerHTML = `${celsiusfeelslike}°`;
-  document.getElementById("maintempnumber").style.color = "#f0defb";
-  document.getElementById("feelslike").style.color = "#f0defb";
-}
-let flink = document.querySelector("#farenheit");
-flink.addEventListener("click", convertToFaren);
-
-let clink = document.querySelector("#celsius");
-clink.addEventListener("click", convertToCel);

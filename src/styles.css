@@ -43,12 +43,21 @@ small {
   font-size: 25px;
   line-height: 25px;
 }
+.tempcolumn {
+  display: block;
+  margin: 0 auto;
+}
 #maintemp {
+  text-align: center;
   font-size: 50px;
   font-weight: bold;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
+#mainttempnumber {
+  text-align: center;
+}
 #celsius {
+  text-align: center;
   color: #f0defb;
   cursor: default;
   text-decoration: none;
@@ -64,10 +73,11 @@ small {
 #farenheit:hover {
   text-decoration: none;
 }
+
 .topextra {
   list-style-type: none;
   padding: 0;
-  margin: 50px auto;
+  margin: 0px auto;
 }
 .extra {
   font-size: 13px;
