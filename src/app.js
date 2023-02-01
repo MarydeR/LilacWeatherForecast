@@ -1,4 +1,22 @@
-// day, date, time update
+// day update
+function displayWeekDay(fulldate) {
+  let weekdays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let numberday = fulldate.getDay();
+  let day = weekdays[numberday];
+  //let hour = fulldate.getHours();
+  //let min = fulldate.getMinutes();
+  let sentenceDay = `${day}`;
+  return sentenceDay;
+}
+// date update
 function displayDate(fulldate) {
   let months = [
     "January",
@@ -22,23 +40,8 @@ function displayDate(fulldate) {
   let sentencedate = `${date} ${month} ${year}`;
   return sentencedate;
 }
-function displayWeekDay(fulldate) {
-  let weekdays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let numberday = fulldate.getDay();
-  let day = weekdays[numberday];
-  //let hour = fulldate.getHours();
-  //let min = fulldate.getMinutes();
-  let sentenceDay = `${day}`;
-  return sentenceDay;
-}
+
+// time update
 function displaylocaltime(fulldate) {
   let hour = fulldate.getHours();
   let min = fulldate.getMinutes();
@@ -49,15 +52,18 @@ let now = new Date();
 document.querySelector("#weekday").innerHTML = displayWeekDay(now);
 document.querySelector("#date").innerHTML = displayDate(now);
 document.querySelector("#localtime").innerHTML = displaylocaltime(now);
+
 // default City Temp
 function searchCity(city) {
   let apikey = "2ec340bdbdo84acaf6ct2a055b44668d";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apikey}&units=metric`;
+  let apiForeURL = `https://api.shecodes.io/weather/v1/forecast?query==${city}&key=${apikey}&units=metric`;
   axios.get(apiUrl).then(showWeather).catch(showError);
+  axios.get(apiForeURL).then(displayForecast).catch(showError);
 }
 
 function showWeather(response) {
-  //console.log(response);
+  console.log(response);
   let city = response.data.city;
   let maintemp = Math.round(response.data.temperature.current);
   celsiustemp = Math.round(response.data.temperature.current);
@@ -81,40 +87,14 @@ function showError() {
 }
 searchCity("Brussels");
 
-// Search City Engine
-
-function citychange(event) {
-  event.preventDefault();
-
-  let valuecity = document.querySelector("#input-city");
-  let newcityname = valuecity.value;
-  searchCity(newcityname);
-}
-
-let cityform = document.querySelector("#enter-city");
-cityform.addEventListener("submit", citychange);
-
-// current position
-
-function currentlocation(event) {
-  event.preventDefault();
-
-  navigator.geolocation.getCurrentPosition(getPositionTemp);
-}
-
-function getPositionTemp(position) {
-  //console.log(position);
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apikey = "2ec340bdbdo84acaf6ct2a055b44668d";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apikey}&units=metric`;
-  axios.get(apiUrl).then(showWeather).catch(showError);
-}
-let currentform = document.querySelector("#currentcitybutton");
-currentform.addEventListener("click", currentlocation);
+//forecast API
+//function showForecast(response) {
+// console.group(response);
+//}
 
 // forecast html injection
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastSection = document.querySelector("#sectionforecast");
   let forecastHTML = `<div class="row">`;
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
@@ -141,4 +121,37 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastSection.innerHTML = forecastHTML;
 }
-displayForecast();
+
+// Search Engine
+
+function citychange(event) {
+  event.preventDefault();
+
+  let valuecity = document.querySelector("#input-city");
+  let newcityname = valuecity.value;
+  searchCity(newcityname);
+}
+
+let cityform = document.querySelector("#enter-city");
+cityform.addEventListener("submit", citychange);
+
+// current position
+
+function currentlocation(event) {
+  event.preventDefault();
+
+  navigator.geolocation.getCurrentPosition(getPositionTemp);
+}
+
+function getPositionTemp(position) {
+  //console.log(position);
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apikey = "2ec340bdbdo84acaf6ct2a055b44668d";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apikey}&units=metric`;
+  let apiForeURL = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apikey}&units=metric`;
+  axios.get(apiUrl).then(showWeather).catch(showError);
+  axios.get(apiForeURL).then(showForecast).catch(showError);
+}
+let currentform = document.querySelector("#currentcitybutton");
+currentform.addEventListener("click", currentlocation);
