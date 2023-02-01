@@ -35,13 +35,13 @@
                   <!-- <li>Local time: hh:mm</li>-->
                 </ul>
               </div>
-              <div class="col-2">
+              <div class="col-2 tempcolumn">
                 <!-- col temp -->
                 <span id="maintemp"> <span id="maintempnumber">--</span></span>
                 <span id="celsius">°C</span>
               </div>
               <!-- col2 col mainicon-->
-              <div class="col-3">
+              <div class="col-3 iconcolumn">
                 <img
                   src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
                   alt="weather icon"
@@ -58,7 +58,8 @@
                   <li class="extra">Wind: <span id="wind">xx</span> m/s</li>
                   <li class="extra">Humidity: <span id="humid">xx</span>%</li>
                 </ul>
-                <span>Local Time:</span> <span id="localtime">hh:mm</span>
+                <span class="currentlocaltime">Local Time:</span>
+                <span class="currentlocaltime" id="localtime">hh:mm</span>
               </div>
             </div>
           </div>

@@ -47,10 +47,12 @@ small {
 .tempcolumn {
   display: block;
   margin: 0 auto;
+  padding: 0;
+  text-align: center;
 }
 #maintemp {
   text-align: center;
-  font-size: 80px;
+  font-size: 70px;
   font-weight: bold;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
@@ -58,7 +60,7 @@ small {
   text-align: center;
 }
 #celsius {
-  font-size: 30px;
+  font-size: 25px;
   display: inline-block;
   text-align: center;
   color: #f0defb;
@@ -69,6 +71,9 @@ small {
 }
 #celsius:hover {
   text-decoration: none;
+}
+.iconcolumn {
+  padding: 0;
 }
 #farenheit {
   color: #bd82df;
@@ -85,9 +90,13 @@ small {
   margin: 0px auto;
 }
 .extra {
-  font-size: 15px;
-  line-height: 15px;
+  font-size: 14px;
+  line-height: 14px;
   text-align: left;
+}
+.currentlocaltime {
+  color: #bd82df;
+  font-size: 18px;
 }
 .section2forecast {
   color: #351c52;
@@ -98,7 +107,8 @@ small {
   text-align: center;
 }
 #forcastday {
-  font-size: 18px;
+  font-size: 20px;
+  color: #8d49c9;
 }
 #forecasticon {
 }
