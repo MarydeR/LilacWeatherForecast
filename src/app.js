@@ -1,4 +1,4 @@
-// day and date update
+// day, date, time update
 function displayDate(fulldate) {
   let months = [
     "January",
@@ -39,10 +39,16 @@ function displayWeekDay(fulldate) {
   let sentenceDay = `${day}`;
   return sentenceDay;
 }
+function displaylocaltime(fulldate) {
+  let hour = fulldate.getHours();
+  let min = fulldate.getMinutes();
+  let sentenceTime = `${hour}:${min}`;
+  return sentenceTime;
+}
 let now = new Date();
 document.querySelector("#weekday").innerHTML = displayWeekDay(now);
 document.querySelector("#date").innerHTML = displayDate(now);
-
+document.querySelector("#localtime").innerHTML = displaylocaltime(now);
 // default City Temp
 function searchCity(city) {
   let apikey = "2ec340bdbdo84acaf6ct2a055b44668d";
